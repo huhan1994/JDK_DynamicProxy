@@ -10,7 +10,7 @@ public class MybeanFactory {
         //2.切面类
         MyAspect myAspect = new MyAspect();
         //3.代理类
-        //可以是MybeanFactory.class.getClassLoader()，也可以是对象实例.class.getClassLoader()
+        //UserService.class().getClassLoader()等同于userService.getClass().getClassLoader()
         UserService proxyUserService = (UserService) Proxy.newProxyInstance(userService.getClass().getClassLoader(), userService.getClass().getInterfaces(), new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
